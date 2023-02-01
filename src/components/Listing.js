@@ -1,7 +1,6 @@
 import ListingItem from "./ListingItem";
 
 function Listing(data) {
-  console.log(data.items[0].MainImage.url_570xN);
   return (
     <div className="item-list">
       {

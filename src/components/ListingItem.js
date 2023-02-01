@@ -13,16 +13,16 @@ function ListingItem(props) {
   return (
     <div className="item">
       <div className="item-image">
-        <a href={props.url}>
+        <a href={props.url || '#'}>
           <img 
-            src={props.imageURL}
-            alt={showTitle(props.title)}
+            src={props.imageURL || '#'}
+            alt={showTitle(props.title || 'no title')}
             />
         </a>
       </div>
       <div className="item-details">
         <p className="item-title">{showTitle(props.title)}</p>
-        <p className="item-price">{showCurrencyIcon(props.currency_code)}3.99</p>
+        <p className="item-price">{showCurrencyIcon(props.currency_code)}{props.price}</p>
         <p className="item-quantity level-medium">{props.quantity} left</p>
       </div>
     </div>
