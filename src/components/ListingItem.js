@@ -24,13 +24,13 @@ function ListingItem(props) {
         <a href={props.url || '#'}>
           <img 
             src={props.imageURL}
-            alt={showTitle(props.title || 'untitled')}
+            alt={showTitle}
             />
         </a>
       </div>
       <div className="item-details">
-        <p className="item-title">{showTitle(props.title)}</p>
-        <p className="item-price">{showPrice(props.currency_code)}</p>
+        <p className="item-title">{showTitle}</p>
+        <p className="item-price">{showPrice}</p>
         <p className={"item-quantity level-medium" + selectQuantityClass(props.quantity)}>{props.quantity} left</p>
       </div>
     </div>
