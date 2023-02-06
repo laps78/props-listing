@@ -2,40 +2,29 @@ import ListingItem from "./ListingItem";
 import { PropTypes } from 'prop-types';
 
 function Listing(data) {
+  const { items } = data;
   return (
-    <div className="item-list">
+    <li className="item-list">
       {
-        Array.from(data.items).map((item) => {
-          // validators
-          const validateTitle = (item) => { if (item.title === undefined) return 'untitled product' };
-          // validate image link
-          const validateMainImage = (item) => {
-            const validatedImageURL = null;
-            if (item.MainImage.url_570xN === undefined) {
-              validatedImageURL = 'https://www.freeiconspng.com/uploads/no-image-icon-6.png';
-            } else {
-              validatedImageURL = item.MainImage.url_570xN;
-            }
-            return validatedImageURL;
-          };
-
+        Array.from(items).map((item) => {
           return (
             <ListingItem
               key={item.listing_id}
-              title={validateTitle}
-              url={item.url}
-              imageURL={validateMainImage(item)}
-              currency_code={item.currency_code}
-              price={item.price}
-              quantity={item.quantity}
+              item={item}
             />
           )
         })
       }
-      <hr />
-      <ListingItem />
-    </div>
+    </li>
   );
+}
+
+Listing.propTypes = {
+  data: PropTypes.array.isRequired,
+}
+
+Listing.defaultProps = {
+  data: [],
 }
 
 export default Listing;
