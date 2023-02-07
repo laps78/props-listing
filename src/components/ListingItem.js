@@ -23,7 +23,6 @@ function ListingItem({ item }) {
 
   return (
     <ul className="item">
-      ListingItem<br/>
       <div className="item-image">
         <a href={url}>
           <img 
@@ -35,7 +34,7 @@ function ListingItem({ item }) {
       <div className="item-details">
         <p className="item-title">{name}</p>
         <p className="item-price">{showPrice(currency_code)}</p>
-        <p className={"item-quantity level-medium" + selectQuantityClass(quantity)}>{quantity} left</p>
+        <p className={"item-quantity " + selectQuantityClass(quantity)}>{quantity} left</p>
       </div>
     </ul>
   );
